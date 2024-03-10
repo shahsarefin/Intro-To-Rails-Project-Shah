@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_10_150707) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_10_162820) do
   create_table "adoptions", force: :cascade do |t|
     t.integer "breed_id"
     t.integer "owner_id"
@@ -31,6 +31,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_10_150707) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.string "address"
+    t.string "phone"
   end
 
 end
