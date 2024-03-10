@@ -12,12 +12,17 @@ The owner information is imported from a locally stored CSV file. This dataset i
 
 ## Database Entity-Relationship Diagram (ERD)
 
-[ Breed ] [ Owner ]
+[ Breed ]
 
-- id (PK) - id (PK)
-- name - name
-- temperament - (other attributes as needed)
+- id (PK)
+- name
+- temperament
 - image_url
+
+[ Owner ]
+
+- id (PK)
+- name
 
 [ Adoption ] (optional for future expansion)
 
