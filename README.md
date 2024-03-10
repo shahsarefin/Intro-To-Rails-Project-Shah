@@ -1,24 +1,11 @@
-# README
+# Dog Breeds App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Datasets Description
 
-Things you may want to cover:
+### Dog API
 
-* Ruby version
+The primary dataset for dog breeds comes from the Dog API (https://thedogapi.com). This API provides detailed information about various dog breeds, including breed names, images, and temperament. This real-time data source ensures our app's breed information is dynamic and extensive.
 
-* System dependencies
+### Owner Data
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The owner information is imported from a locally stored CSV file. This dataset includes owner names and other relevant details to simulate user interactions and ownership relationships with dog breeds.
