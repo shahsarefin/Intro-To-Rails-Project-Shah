@@ -1,0 +1,32 @@
+<!-- app/views/breeds/index.html.erb -->
+<%= paginate @breeds %>
+
+<div class="container">
+  <h1 class="text-center">Dog Breeds</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Temperament</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @breeds.each do |breed| %>
+        <tr>
+          <td><%= breed['id'] %></td>
+          <td>
+            <% if breed['reference_image_id'] %>
+              <%= image_tag "https://cdn2.thedogapi.com/images/#{breed['reference_image_id']}.jpg", alt: breed['name'], class: 'breed-image' %>
+            <% end %>
+          </td>
+          <td><%= breed['name'] %></td>
+          <td><%= breed['temperament'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @breeds %>
