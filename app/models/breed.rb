@@ -1,2 +1,5 @@
 class Breed < ApplicationRecord
-end
+    has_many :adoptions
+    
+  end
+  

@@ -1,2 +1,5 @@
 class Owner < ApplicationRecord
-end
+    has_many :adoptions
+
+  end
+  
