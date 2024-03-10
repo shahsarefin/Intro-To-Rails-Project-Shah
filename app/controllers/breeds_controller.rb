@@ -6,6 +6,7 @@ class BreedsController < ApplicationController
   
       if response.success?
         all_breeds = JSON.parse(response.body)
+        # paginated the breeds with kaminari
         @breeds = Kaminari.paginate_array(all_breeds).page(params[:page]).per(15)
       else
         @breeds = Kaminari.paginate_array([]).page(params[:page]).per(15)
