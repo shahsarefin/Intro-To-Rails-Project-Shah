@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
   get 'owners/index'
-  # route for the breeds index action
   root 'breeds#index'
   get '/breeds', to: 'breeds#index', as: :breeds
+  get 'breeds/:id', to: 'breeds#show', as: 'breed'
   get '/owners', to: 'owners#index', as: :owners
+  get '/owners/:id', to: 'owners#show', as: :owner
+  get '/about', to: 'static_pages#about', as: :about
 end
