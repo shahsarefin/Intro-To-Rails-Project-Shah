@@ -1,0 +1,29 @@
+<div class="container">
+  <% if @breed.present? %>
+    <h1 class="text-center"><%= @breed['name'] %></h1>
+    
+    <% if @breed['reference_image_id'].present? %>
+      <%= image_tag "https://cdn2.thedogapi.com/images/#{@breed['reference_image_id']}.jpg", alt: @breed['name'], class: "img-fluid" %>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Details</h2>
+        <p><strong>Bred for:</strong> <%= @breed['bred_for'] || "N/A" %></p>
+        <p><strong>Breed Group:</strong> <%= @breed['breed_group'] || "N/A" %></p>
+        <p><strong>Life Span:</strong> <%= @breed['life_span'] || "N/A" %></p>
+        <p><strong>Temperament:</strong> <%= @breed['temperament'] || "N/A" %></p>
+        <p><strong>Origin:</strong> <%= @breed['origin'] || "N/A" %></p>
+      </div>
+      <div class="col-md-6">
+        <h2>Measurements</h2>
+        <p><strong>Weight:</strong> <%= @breed.dig('weight', 'imperial') %> lbs (Imperial), <%= @breed.dig('weight', 'metric') %> kg (Metric)</p>
+        <p><strong>Height:</strong> <%= @breed.dig('height', 'imperial') %> inches (Imperial), <%= @breed.dig('height', 'metric') %> cm (Metric)</p>
+      </div>
+    </div>
+  <% else %>
+    <p>Breed information is not available.</p>
+  <% end %>
+  
+  <%= link_to 'Back to Breeds', breeds_path, class: 'btn btn-secondary' %>
+</div>
