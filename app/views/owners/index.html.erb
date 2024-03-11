@@ -1,6 +1,3 @@
-# pagination for owners 
-<%= paginate @owners %>
-
 <div class="container">
   <h1 class="text-center">Owners</h1>
   <table class="table">
@@ -8,9 +5,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
+        <th>More Information</th>
       </tr>
     </thead>
     <tbody>
@@ -18,13 +13,11 @@
         <tr>
           <td><%= owner.id %></td>
           <td><%= owner.name %></td>
-          <td><%= owner.phone_number %></td>
-          <td><%= owner.email %></td>
-          <td><%= owner.address %></td>
+          <td><%= link_to 'More Information', owner_path(owner), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
 
-<%= paginate @owners %>
+  <%= paginate @owners %>
+</div>
