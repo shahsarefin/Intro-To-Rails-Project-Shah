@@ -11,7 +11,7 @@ AdoptADog is a web application aimed at facilitating the adoption process for do
 
 - **Search Functionality:** Users can search for specific dog breeds by name using the search feature.
 
-- **Adoption Information:** The application offers information about the adoption process, including adoption requirements, procedures, and available dogs for adoption.
+- **User Information:** Detailed information is provided for each User, including their contact and related information.
 
 ## Technologies Used
 
