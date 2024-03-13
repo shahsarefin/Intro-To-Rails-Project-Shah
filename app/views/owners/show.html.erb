@@ -28,8 +28,10 @@
   <h2>Adopted Breeds</h2>
   <% if @owner.breeds.any? %>
     <ul>
-      <% @owner.breeds.uniq.each do |breed| %>
-        <li><%= breed.name %></li>
+      <% @owner.adoptions.each do |adoption| %>
+        <li>
+          <%= adoption.breed.name %> (Adopted on: <%= adoption.adoption_date %>)
+        </li>
       <% end %>
     </ul>
   <% else %>
