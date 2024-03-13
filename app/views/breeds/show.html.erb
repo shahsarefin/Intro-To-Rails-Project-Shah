@@ -24,6 +24,20 @@
   <% else %>
     <p>Breed information is not available.</p>
   <% end %>
+
+
+  <h2>Owners Who Have Adopted This Breed</h2>
+  
+  <% if @owners.any? %>
+    <ul>
+      <% @owners.each do |owner| %>
+        <li><%= owner.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Currently, there are no owners who have adopted this breed.</p>
+  <% end %>
+  
   
   <%= link_to 'Back to Breeds', breeds_path, class: 'btn btn-secondary' %>
 </div>
