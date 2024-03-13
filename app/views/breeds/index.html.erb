@@ -1,40 +1,64 @@
-<div class="container">
-  <%= form_tag breeds_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control mr-sm-2" %>
-    <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-  <% end %>
-
-  <h1 class="text-center mt-3">Dog Breeds</h1>
-  <table class="table mt-3">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Temperament</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @breeds.each do |breed| %>
-        <tr>
-          <td><%= breed['id'] %></td>
-          <td>
-            <% if breed['reference_image_id'] %>
-              <%= image_tag "https://cdn2.thedogapi.com/images/#{breed['reference_image_id']}.jpg", alt: breed['name'], class: 'breed-image' %>
-            <% end %>
-          </td>
-          <td><%= breed['name'] %></td>
-          <td><%= breed['temperament'] || "N/A" %></td>
-          <td><%= link_to 'Show Details', breed_path(breed['id']), class: 'btn btn-info' %></td>
-        </tr>
+<div class="container mt-3">
+  <div class="row justify-content-center mb-4">
+    <div class="col-lg-8">
+      <%= form_tag breeds_path, method: :get, class: "form-inline d-flex justify-content-between my-2 my-lg-0" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control flex-grow-1 mr-2" %>
+        <%= submit_tag "Search", class: "btn btn-outline-success" %>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
 
-  <%= paginate @breeds, remote: true %>
-  
-  <!-- Add a button to return to the home page if a search is performed -->
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Browse All Dog Breeds</h1>
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Temperament</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+  <% @breeds.each do |breed| %>
+    <tr>
+      <td><%= breed['id'] %></td>
+      <td>
+        <% if breed['reference_image_id'] %>
+          <%= image_tag "https://cdn2.thedogapi.com/images/#{breed['reference_image_id']}.jpg", alt: breed['name'], class: 'img-fluid', style: 'max-width: 100px; max-height: 100px;' %>
+        <% end %>
+      </td>
+      <td><%= breed['name'] %></td>
+      <td><%= breed['temperament'] || "N/A" %></td>
+      <td><%= link_to 'Show Details', breed_path(breed['id']), class: 'btn btn-info' %></td>
+    </tr>
+  <% end %>
+</tbody>
+      </table>
+
+      <%= paginate @breeds, theme: 'twitter-bootstrap-4', remote: true, params: { format: 'js' } do %>
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <%= first_page_tag %>
+            <%= prev_page_tag %>
+            <% each_page do |page| %>
+              <%= page_tag page %>
+            <% end %>
+            <%= next_page_tag %>
+            <%= last_page_tag %>
+          </ul>
+        </nav>
+      <% end %>
+    </div>
+  </div>
+
   <% if params[:search].present? %>
-  <button onclick="window.location.href='<%= root_path %>'" class="btn btn-info mt-3">Back to Home</button>
+    <div class="row">
+      <div class="col-12 text-center mt-3">
+        <button onclick="window.location.href='<%= root_path %>'" class="btn btn-info">Back to Home</button>
+      </div>
+    </div>
   <% end %>
 </div>
