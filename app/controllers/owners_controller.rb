@@ -4,6 +4,7 @@ class OwnersController < ApplicationController
   end
 
   def show
-    @owner = Owner.find(params[:id])
+    @owner = Owner.includes(:breeds).find(params[:id])
   end
+
 end
