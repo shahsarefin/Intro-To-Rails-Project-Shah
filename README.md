@@ -1,32 +1,43 @@
 # Dog Breeds App
 
-## Datasets Description
+### Dataset Overview
 
-### Dog API
+The dataset comprises three primary entities: `Breeds`, `Owners`, and `Adoptions`. These entities are interconnected through associations that represent the real-world relationships between pet breeds, their owners, and the adoptions that link them.
 
-The primary dataset for dog breeds comes from the Dog API (https://thedogapi.com). This API provides detailed information about various dog breeds, including breed names, images, and temperament. This real-time data source ensures our app's breed information is dynamic and extensive.
+### Breeds
 
-### Owner Data
+- **Description**: This entity represents different types of pet breeds. Each breed has its unique characteristics, which are captured by attributes such as `name` and `temperament`.
+- **Attributes**:
+  - `id`: A unique identifier for each breed.
+  - `name`: The name of the breed.
+  - `temperament`: Descriptive text about the breed's general behavior and personality traits.
+  - `created_at` & `updated_at`: Timestamps that track when the breed record was created and last updated.
 
-The owner information is imported from a locally stored CSV file. This dataset includes owner names and other relevant details to simulate user interactions and ownership relationships with dog breeds.
+### Owners
 
-## Database Entity-Relationship Diagram (ERD)
+- **Description**: Owners are individuals who adopt pets. This entity stores their personal information, which includes contact details and address.
+- **Attributes**:
+  - `id`: A unique identifier for each owner.
+  - `name`: The owner's full name.
+  - `email`: The owner's email address.
+  - `phone_number`: The owner's phone number.
+  - `address`: The physical address of the owner.
+  - `created_at` & `updated_at`: Timestamps that track when the owner record was created and last updated.
 
-[ Breed ]
+### Adoptions
 
-- id (PK)
-- name
-- temperament
-- image_url
+- **Description**: This entity records the adoption of a pet by an owner. It serves as a join table between `Breeds` and `Owners`, indicating which owner has adopted a pet of a specific breed and when the adoption occurred.
+- **Attributes**:
+  - `id`: A unique identifier for each adoption record.
+  - `breed_id`: A foreign key that links to the adopted pet's breed.
+  - `owner_id`: A foreign key that links to the adopting owner.
+  - `adoption_date`: The date when the adoption took place.
+  - `created_at` & `updated_at`: Timestamps that track when the adoption record was created and last updated.
 
-[ Owner ]
+### Associations
 
-- id (PK)
-- name
+- **Breeds and Adoptions**: A one-to-many relationship, where one breed can be associated with many adoptions.
+- **Owners and Adoptions**: A one-to-many relationship, where one owner can have many adoptions.
+- **Breeds and Owners through Adoptions**: A many-to-many relationship facilitated by the `Adoptions` entity. This indicates that owners can adopt pets of many breeds and that breeds can be adopted by many owners.
 
-[ Adoption ] (optional for future expansion)
-
-- id (PK)
-- breed_id (FK to Breed)
-- owner_id (FK to Owner)
-- adoption_date
+This dataset allows the application to manage and track the adoption of pets, linking them to their new owners and recording important details about each transaction.
