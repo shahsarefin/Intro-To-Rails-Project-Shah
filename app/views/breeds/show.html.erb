@@ -1,48 +1,77 @@
-<div class="container">
+<div class="container my-4">
   <% if @breed.present? %>
-    <h1 class="text-center"><%= @breed['name'] %></h1>
-    
-    <% if @breed['reference_image_id'].present? %>
-      <%= image_tag "https://cdn2.thedogapi.com/images/#{@breed['reference_image_id']}.jpg", alt: @breed['name'], class: "img-fluid" %>
-    <% end %>
+    <h1 class="text-center mb-4"><%= @breed['name'] %></h1>
 
-    <div class="row">
+    <div class="row align-items-center mb-4">
+      <% if @breed['reference_image_id'].present? %>
+        <div class="col-md-6">
+          <%= image_tag "https://cdn2.thedogapi.com/images/#{@breed['reference_image_id']}.jpg", alt: @breed['name'], class: "img-fluid rounded mb-4" %>
+        </div>
+      <% end %>
+
       <div class="col-md-6">
-        <h2>Details</h2>
-        <p><strong>Bred for:</strong> <%= @breed['bred_for'] || "N/A" %></p>
-        <p><strong>Breed Group:</strong> <%= @breed['breed_group'] || "N/A" %></p>
-        <p><strong>Life Span:</strong> <%= @breed['life_span'] || "N/A" %></p>
-        <p><strong>Temperament:</strong> <%= @breed['temperament'] || "N/A" %></p>
-        <p><strong>Origin:</strong> <%= @breed['origin'] || "N/A" %></p>
-      </div>
-      <div class="col-md-6">
-        <h2>Measurements</h2>
-        <p><strong>Weight:</strong> <%= @breed.dig('weight', 'imperial') %> lbs (Imperial), <%= @breed.dig('weight', 'metric') %> kg (Metric)</p>
-        <p><strong>Height:</strong> <%= @breed.dig('height', 'imperial') %> inches (Imperial), <%= @breed.dig('height', 'metric') %> cm (Metric)</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Bred for:</th>
+              <td><%= @breed['bred_for'] || "N/A" %></td>
+            </tr>
+            <tr>
+              <th>Breed Group:</th>
+              <td><%= @breed['breed_group'] || "N/A" %></td>
+            </tr>
+            <tr>
+              <th>Life Span:</th>
+              <td><%= @breed['life_span'] || "N/A" %></td>
+            </tr>
+            <tr>
+              <th>Temperament:</th>
+              <td><%= @breed['temperament'] || "N/A" %></td>
+            </tr>
+            
+            <tr>
+              <th>Weight:</th>
+              <td><%= @breed.dig('weight', 'imperial') %> lbs (Imperial), <%= @breed.dig('weight', 'metric') %> kg (Metric)</td>
+            </tr>
+            <tr>
+              <th>Height:</th>
+              <td><%= @breed.dig('height', 'imperial') %> inches (Imperial), <%= @breed.dig('height', 'metric') %> cm (Metric)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   <% else %>
-    <p>Breed information is not available.</p>
+    <p class="text-center">Breed information is not available.</p>
   <% end %>
 
-
-  <h2>Owners Who Have Adopted This Breed</h2>
-
+  <h2 class="mt-4 mb-4">Owners Who Have Adopted This Breed</h2>
   <% if @adoptions.any? %>
-  <% @adoptions.each do |adoption| %>
-    <div>
-      <p><strong>Name:</strong> <%= adoption.owner.name %></p>
-      <p><strong>Adoption Date:</strong> <%= adoption.adoption_date.strftime('%B %d, %Y') %></p>
-      <p><strong>Phone:</strong> <%= adoption.owner.phone %></p>
-      <p><strong>Email:</strong> <%= adoption.owner.email %></p>
-      <p><strong>Address:</strong> <%= adoption.owner.address %></p>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Adoption Date</th>
+          <th>Email</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @adoptions.each do |adoption| %>
+          <tr>
+            <td><%= adoption.owner.name %></td>
+            <td><%= adoption.adoption_date.strftime('%B %d, %Y') %></td>
+            <td><%= adoption.owner.email %></td>
+            <td><%= adoption.owner.address %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No owners have adopted this breed yet.</p>
   <% end %>
-<% else %>
-  <p>Currently, there are no owners who have adopted this breed.</p>
-<% end %>
 
-  
-  
-  <%= link_to 'Back to Breeds', breeds_path, class: 'btn btn-secondary' %>
+  <div class="text-center mt-4">
+    <%= link_to 'Back to Home', breeds_path, class: 'btn btn-secondary' %>
+  </div>
 </div>
