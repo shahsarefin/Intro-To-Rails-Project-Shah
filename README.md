@@ -1,3 +1,25 @@
+# AdoptADog Project
+
+## Introduction
+
+AdoptADog is a web application aimed at facilitating the adoption process for dogs. It provides a platform where users can explore different dog breeds, learn about their characteristics, and find dogs available for adoption. The application also assists in connecting potential adopters with the right pets and provides information about the adoption process.
+
+## Features
+
+- **Browse Dog Breeds:** Users can browse a list of dog breeds to learn about their characteristics, temperament, and suitability as pets.
+- **Detailed Breed Information:** Detailed information is provided for each breed, including their history, physical traits, and temperament.
+
+- **Search Functionality:** Users can search for specific dog breeds by name using the search feature.
+
+- **Adoption Information:** The application offers information about the adoption process, including adoption requirements, procedures, and available dogs for adoption.
+
+## Technologies Used
+
+The AdoptADog web application is built using the following technologies:
+
+- **Ruby on Rails:** The framework used for developing the backend logic and handling web requests.
+- **Bootstrap:** The frontend framework used for designing responsive and visually appealing user interfaces.
+
 # Dataset Overview - AdoptADog
 
 The dataset comprises three primary entities: Breeds, Owners, and Adoptions. These entities are interconnected through associations that represent the real relationships between pet breeds, their owners, and the adoptions that link them.
@@ -6,60 +28,51 @@ The dataset comprises three primary entities: Breeds, Owners, and Adoptions. The
 
 - **Description**: This entity represents different types of pet breeds. Each breed has its unique characteristics, which are captured by attributes such as name and temperament.
 - **Data Source 1 - For Breeds:**
-- For Breeds, we are using the [Dog CEO Dog API](https://dog.ceo/dog-api/).
+  - For Breeds, we are using the [Dog CEO Dog API](https://dog.ceo/dog-api/).
 
 ## Owners
 
 - **Description**: Owners are individuals who adopt pets. This entity stores their personal information, which includes contact details and address.
 - **Data Source 2 - For Owners:**
-- For Owners, we are using a CSV file called `owners.csv` located in the `db` folder.
+  - For Owners, we are using a CSV file called `owners.csv` located in the `db` folder.
 
 ## Adoptions
 
 - **Description**: This entity records the adoption of a pet by an owner. It serves as a join table between Breeds and Owners, indicating which owner has adopted a pet of a specific breed and when the adoption occurred.
 - **Data Source 3 - For Adoption:**
-- For the Adoption model, we are generating data using the Faker gem.
+  - For the Adoption model, we are generating data using the Faker gem.
 
-# Database Text ERD(ERD Diagram picture included in the app folder)
+## Setup Instructions
 
-## Breeds
+Setup Instructions
+To set up the AdoptADog project locally, follow these steps:
 
-| Attribute                             | Type     | Description                                                    |
-| ------------------------------------- | -------- | -------------------------------------------------------------- |
-| id                                    | integer  | A unique identifier for each breed.                            |
-| name                                  | string   | The name of the breed.                                         |
-| temperament                           | text     | Descriptive text about the breed's behavior.                   |
-| created_at                            | datetime | Timestamp indicating when the breed record was created.        |
-| updated_at                            | datetime | Timestamp indicating when the breed record was last updated.   |
-| --------------                        | ------   | --------------------------------------------------             |
-| has_many :adoptions                   |          | Indicates that a breed can have many adoptions.                |
-| has_many :owners, through: :adoptions |          | Indicates that a breed can have many owners through adoptions. |
+Clone the Repository:
+git clone <repository_url>
 
-## Owners
+Navigate to the Project Directory:
 
-| Attribute                             | Type     | Description                                                     |
-| ------------------------------------- | -------- | --------------------------------------------------------------- |
-| id                                    | integer  | A unique identifier for each owner.                             |
-| name                                  | string   | The owner's full name.                                          |
-| email                                 | string   | The owner's email address.                                      |
-| phone_number                          | string   | The owner's phone number.                                       |
-| address                               | string   | The physical address of the owner.                              |
-| created_at                            | datetime | Timestamp indicating when the owner record was created.         |
-| updated_at                            | datetime | Timestamp indicating when the owner record was last updated.    |
-| --------------                        | -------  | --------------------------------------------------              |
-| has_many :adoptions                   |          | Indicates that an owner can have many adoptions.                |
-| has_many :breeds, through: :adoptions |          | Indicates that an owner can have many breeds through adoptions. |
+cd AdoptADog
 
-## Adoptions
+Install Dependencies:
 
-| Attribute         | Type       | Description                                                     |
-| ----------------- | ---------- | --------------------------------------------------------------- |
-| id                | integer    | A unique identifier for each adoption record.                   |
-| breed_id          | integer    | Foreign key linking to the adopted pet's breed.                 |
-| owner_id          | integer    | Foreign key linking to the adopting owner.                      |
-| adoption_date     | date       | The date when the adoption took place.                          |
-| created_at        | datetime   | Timestamp indicating when the adoption record was created.      |
-| updated_at        | datetime   | Timestamp indicating when the adoption record was last updated. |
-| --------------    | ---------- | --------------------------------------------------              |
-| belongs_to :breed |            | Indicates that an adoption belongs to a specific breed.         |
-| belongs_to :owner |            | Indicates that an adoption belongs to a specific owner.         |
+````bash
+bundle install
+
+Set Up the Database:
+```bash
+rails db:create
+rails db:migrate
+
+Seed the Database (Optional):
+If you have seed data to populate the database, run:
+```bash
+rails db:seed
+
+Start the Rails Server:
+```bash
+rails server
+
+Access the Application:
+Open your web browser and visit [http://localhost:3000](http://localhost:3000) to access the AdoptADog application.
+````
