@@ -13,11 +13,11 @@
         <tr>
           <td><%= owner.id %></td>
           <td><%= owner.name %></td>
-          <td><%= link_to 'More Information', owner_path(owner), class: 'btn btn-primary' %></td>
+          <td><%= link_to 'More Information', owner_path(owner), class: 'btn btn-info' %></td> 
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <%= paginate @owners %>
+  <%= paginate @owners, theme: 'twitter-bootstrap-4', class: 'custom-pagination' %>
 </div>
