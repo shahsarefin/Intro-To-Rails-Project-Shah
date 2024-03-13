@@ -1,8 +1,11 @@
-<%= paginate @breeds %>
-
 <div class="container">
-  <h1 class="text-center">Dog Breeds</h1>
-  <table class="table">
+  <%= form_tag breeds_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control mr-sm-2" %>
+    <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
+
+  <h1 class="text-center mt-3">Dog Breeds</h1>
+  <table class="table mt-3">
     <thead>
       <tr>
         <th>ID</th>
@@ -21,11 +24,17 @@
             <% end %>
           </td>
           <td><%= breed['name'] %></td>
-          <td><%= breed['temperament'] %></td>
+          <td><%= breed['temperament'] || "N/A" %></td>
+          <td><%= link_to 'Show Details', breed_path(breed['id']), class: 'btn btn-info' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
 
-<%= paginate @breeds %>
+  <%= paginate @breeds, remote: true %>
+  
+  <!-- Add a button to return to the home page if a search is performed -->
+  <% if params[:search].present? %>
+  <button onclick="window.location.href='<%= root_path %>'" class="btn btn-info mt-3">Back to Home</button>
+  <% end %>
+</div>

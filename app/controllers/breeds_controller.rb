@@ -1,16 +1,18 @@
 require 'httparty'
 
   class BreedsController < ApplicationController
+
     def index
       response = HTTParty.get('https://api.thedogapi.com/v1/breeds')
-    
-      if response.success?
-        all_breeds = JSON.parse(response.body)
-        @breeds = Kaminari.paginate_array(all_breeds).page(params[:page]).per(15)
+      all_breeds = response.success? ? JSON.parse(response.body) : []
+      #simple search
+      if params[:search].present?
+        @breeds = all_breeds.select { |breed| breed['name'].downcase.include?(params[:search].downcase) }
       else
-        @breeds = Kaminari.paginate_array([]).page(params[:page]).per(15)
-        flash[:error] = "There was a problem fetching the breed data."
+        @breeds = all_breeds
       end
+  
+      @breeds = Kaminari.paginate_array(@breeds).page(params[:page]).per(15)
     end
   
     def show
