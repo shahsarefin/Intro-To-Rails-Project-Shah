@@ -24,31 +24,31 @@ The dataset comprises three primary entities: Breeds, Owners, and Adoptions. The
 
 ## Breeds
 
-| Attribute                             | Type       | Description                                                    |
-| ------------------------------------- | ---------- | -------------------------------------------------------------- |
-| id                                    | integer    | A unique identifier for each breed.                            |
-| name                                  | string     | The name of the breed.                                         |
-| temperament                           | text       | Descriptive text about the breed's behavior.                   |
-| created_at                            | datetime   | Timestamp indicating when the breed record was created.        |
-| updated_at                            | datetime   | Timestamp indicating when the breed record was last updated.   |
-| --------------                        | ---------- | --------------------------------------------------             |
-| has_many :adoptions                   |            | Indicates that a breed can have many adoptions.                |
-| has_many :owners, through: :adoptions |            | Indicates that a breed can have many owners through adoptions. |
+| Attribute                             | Type      | Description                                                    |
+| ------------------------------------- | --------- | -------------------------------------------------------------- |
+| id                                    | integer   | A unique identifier for each breed.                            |
+| name                                  | string    | The name of the breed.                                         |
+| temperament                           | text      | Descriptive text about the breed's behavior.                   |
+| created_at                            | datetime  | Timestamp indicating when the breed record was created.        |
+| updated_at                            | datetime  | Timestamp indicating when the breed record was last updated.   |
+| --------------                        | --------- | --------------------------------------------------             |
+| has_many :adoptions                   |           | Indicates that a breed can have many adoptions.                |
+| has_many :owners, through: :adoptions |           | Indicates that a breed can have many owners through adoptions. |
 
 ## Owners
 
-| Attribute                             | Type       | Description                                                     |
-| ------------------------------------- | ---------- | --------------------------------------------------------------- |
-| id                                    | integer    | A unique identifier for each owner.                             |
-| name                                  | string     | The owner's full name.                                          |
-| email                                 | string     | The owner's email address.                                      |
-| phone_number                          | string     | The owner's phone number.                                       |
-| address                               | string     | The physical address of the owner.                              |
-| created_at                            | datetime   | Timestamp indicating when the owner record was created.         |
-| updated_at                            | datetime   | Timestamp indicating when the owner record was last updated.    |
-| --------------                        | ---------- | --------------------------------------------------              |
-| has_many :adoptions                   |            | Indicates that an owner can have many adoptions.                |
-| has_many :breeds, through: :adoptions |            | Indicates that an owner can have many breeds through adoptions. |
+| Attribute                             | Type      | Description                                                     |
+| ------------------------------------- | --------- | --------------------------------------------------------------- |
+| id                                    | integer   | A unique identifier for each owner.                             |
+| name                                  | string    | The owner's full name.                                          |
+| email                                 | string    | The owner's email address.                                      |
+| phone_number                          | string    | The owner's phone number.                                       |
+| address                               | string    | The physical address of the owner.                              |
+| created_at                            | datetime  | Timestamp indicating when the owner record was created.         |
+| updated_at                            | datetime  | Timestamp indicating when the owner record was last updated.    |
+| --------------                        | --------- | --------------------------------------------------              |
+| has_many :adoptions                   |           | Indicates that an owner can have many adoptions.                |
+| has_many :breeds, through: :adoptions |           | Indicates that an owner can have many breeds through adoptions. |
 
 ## Adoptions
 
