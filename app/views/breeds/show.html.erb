@@ -27,16 +27,21 @@
 
 
   <h2>Owners Who Have Adopted This Breed</h2>
-  
-  <% if @owners.any? %>
-    <ul>
-      <% @owners.each do |owner| %>
-        <li><%= owner.name %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>Currently, there are no owners who have adopted this breed.</p>
+
+  <% if @adoptions.any? %>
+  <% @adoptions.each do |adoption| %>
+    <div>
+      <p><strong>Name:</strong> <%= adoption.owner.name %></p>
+      <p><strong>Adoption Date:</strong> <%= adoption.adoption_date.strftime('%B %d, %Y') %></p>
+      <p><strong>Phone:</strong> <%= adoption.owner.phone %></p>
+      <p><strong>Email:</strong> <%= adoption.owner.email %></p>
+      <p><strong>Address:</strong> <%= adoption.owner.address %></p>
+    </div>
   <% end %>
+<% else %>
+  <p>Currently, there are no owners who have adopted this breed.</p>
+<% end %>
+
   
   
   <%= link_to 'Back to Breeds', breeds_path, class: 'btn btn-secondary' %>
