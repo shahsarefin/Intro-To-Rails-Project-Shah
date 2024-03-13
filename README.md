@@ -44,35 +44,32 @@ The dataset comprises three primary entities: Breeds, Owners, and Adoptions. The
 
 ## Setup Instructions
 
-Setup Instructions
 To set up the AdoptADog project locally, follow these steps:
 
-Clone the Repository:
-git clone <repository_url>
+- **Clone the Repository:**
+- git clone <repository_url>
 
-Navigate to the Project Directory:
+- **Navigate to the Project Directory:**
 
-cd AdoptADog
+- cd AdoptADog
 
-Install Dependencies:
+- **Install Dependencies:**
 
-````bash
-bundle install
+- bundle install
 
-Set Up the Database:
-```bash
-rails db:create
-rails db:migrate
+- **Set Up the Database:**
 
-Seed the Database (Optional):
-If you have seed data to populate the database, run:
-```bash
-rails db:seed
+- rails db:create
+- rails db:migrate
 
-Start the Rails Server:
-```bash
-rails server
+- **Seed the Database:**
 
-Access the Application:
-Open your web browser and visit [http://localhost:3000](http://localhost:3000) to access the AdoptADog application.
-````
+- rails db:seed
+
+- **Start the Rails Server:**
+
+- rails server
+
+- **Access the Application:**
+- Open your web browser and visit [http://localhost:3000](http://localhost:3000)
+  to access the AdoptADog application.
