@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <!-- Hero Section -->
+  <div class="row">
+    <div class="col-md-7 my-auto">
+      <h1 class="display-3 font-weight-bold">Find Your Furry Friend</h1>
+      <p class="lead">Discover your perfect canine companion from a variety of breeds. Embrace the journey of friendship with a loyal pet.</p>
+      <div class="mt-3">
+      <div class="mt-3">
+      <%= link_to 'Browse All Dog Breeds', breeds_path, class: 'btn btn-lg', style: 'background-color: #87CEEB; color: white; border-color: #87CEEB;' %>
+    </div>
+    
+      </div>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag 'happyDog.jpg', alt: 'Happy Dog', class: 'img-fluid' %>
+    </div>
+  </div>
+
+  <!-- Search Section -->
+  <br>
+  <h2 class="text-center mb-3">Bring Home Your Cute Companion</h2>
+  <div class="row mt-5 justify-content-center">
+    <div class="col-lg-8">
+      <%= form_tag breeds_path, method: :get, class: "form-inline d-flex justify-content-between my-2 my-lg-0" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control flex-grow-1 mr-2" %>
+        <%= submit_tag "Search", class: "btn btn-outline-success", style: 'border-color: #87CEEB;' %>
+      <% end %>
+    </div>
+  </div>
+</div>
