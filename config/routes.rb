@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'static_pages/about'
   get 'owners/index'
-  root 'breeds#index'
+  root 'static_pages#home'
   get '/breeds', to: 'breeds#index', as: :breeds
   get 'breeds/:id', to: 'breeds#show', as: 'breed'
   get '/owners', to: 'owners#index', as: :owners

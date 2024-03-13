@@ -22,8 +22,6 @@ The dataset comprises three primary entities: Breeds, Owners, and Adoptions. The
 
 # Database Text ERD(ERD Diagram picture included in the app folder)
 
-![ERD Diagram](../Intro-To-Rails-Project-Shah/db/Erd-AdoptADog.png)
-
 ## Breeds
 
 | Attribute                             | Type     | Description                                                    |

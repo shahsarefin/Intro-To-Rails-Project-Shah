@@ -12,7 +12,7 @@ require 'httparty'
         @breeds = all_breeds
       end
   
-      @breeds = Kaminari.paginate_array(@breeds).page(params[:page]).per(15)
+      @breeds = Kaminari.paginate_array(@breeds).page(params[:page]).per(10)
     end
 
     def show

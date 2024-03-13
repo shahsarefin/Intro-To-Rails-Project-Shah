@@ -7,6 +7,9 @@ ruby "3.3.0"
 gem 'httparty'
 gem 'kaminari'
 gem 'smarter_csv'
+gem 'faker'
+gem 'bootstrap', '~> 5.1.3'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -71,4 +74,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'rspec-rails', '~> 5.0'
+  
 end

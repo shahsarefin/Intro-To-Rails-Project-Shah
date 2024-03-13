@@ -1,6 +1,6 @@
 class OwnersController < ApplicationController
   def index
-    @owners = Owner.all.page(params[:page]).per(15)
+    @owners = Owner.all.page(params[:page]).per(10)
   end
 
   def show
