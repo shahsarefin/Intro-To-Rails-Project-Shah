@@ -25,5 +25,16 @@
     </tbody>
   </table>
 
+  <h2>Adopted Breeds</h2>
+  <% if @owner.breeds.any? %>
+    <ul>
+      <% @owner.breeds.uniq.each do |breed| %>
+        <li><%= breed.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>This owner has not adopted any breeds.</p>
+  <% end %>
+
   <%= link_to 'Back to Owners', owners_path, class: 'btn btn-secondary' %>
 </div>
