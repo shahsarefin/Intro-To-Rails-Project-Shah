@@ -24,7 +24,7 @@
     <div class="col-lg-8 search-container">
       <%= form_tag breeds_path, method: :get, class: "form-inline d-flex justify-content-between my-2 my-lg-0" do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control flex-grow-1 mr-2" %>
-        <%= submit_tag "Search", class: "btn btn-outline-success" %>
+<%= submit_tag "Search", class: "btn btn-outline-success" %>
       <% end %>
     </div>
   </div>
@@ -36,31 +36,32 @@
     <div class="col-12">
       <h1 class="text-center">Browse All Dog Breeds</h1>
       <table class="table mt-3">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Temperament</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-  <% @breeds.each do |breed| %>
+  <thead>
     <tr>
-      <td><%= breed['id'] %></td>
-      <td>
-        <% if breed['reference_image_id'] %>
-          <%= image_tag "https://cdn2.thedogapi.com/images/#{breed['reference_image_id']}.jpg", alt: breed['name'], class: 'img-fluid', style: 'max-width: 100px; max-height: 100px;' %>
-        <% end %>
-      </td>
-      <td><%= breed['name'] %></td>
-      <td><%= breed['temperament'] || "N/A" %></td>
-      <td><%= link_to 'Show Details', breed_path(breed['id']), class: 'btn btn-info' %></td>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Temperament</th>
+      <th>More Information</th> 
     </tr>
-  <% end %>
-</tbody>
-      </table>
+  </thead>
+  <tbody>
+    <% @breeds.each do |breed| %>
+      <tr>
+        <td><%= breed['id'] %></td>
+        <td>
+          <% if breed['reference_image_id'] %>
+            <%= image_tag "https://cdn2.thedogapi.com/images/#{breed['reference_image_id']}.jpg", alt: breed['name'], class: 'img-fluid', style: 'max-width: 100px; max-height: 100px;' %>
+          <% end %>
+        </td>
+        <td><%= breed['name'] %></td>
+        <td><%= breed['temperament'] || "N/A" %></td>
+        <td><%= link_to 'Show Details', breed_path(breed['id']), class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
       <%= paginate @breeds, theme: 'twitter-bootstrap-4', remote: true, params: { format: 'js' } do %>
         <nav aria-label="Page navigation">
@@ -85,4 +86,3 @@
       </div>
     </div>
   <% end %>
-</div>
