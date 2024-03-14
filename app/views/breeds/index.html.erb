@@ -1,12 +1,36 @@
+<%= content_for :head do %>
+  <style>
+    .search-container {
+      padding-top: 20px;
+      padding-left: 20px;
+      z-index: 1030;
+      position: relative;
+    }
+
+    .form-inline {
+      width: auto;
+      margin: 0;
+    }
+
+    .form-control {
+      width: 100%;
+      max-width: 300px; 
+    }
+  </style>
+<% end %>
+
 <div class="container mt-3">
   <div class="row justify-content-center mb-4">
-    <div class="col-lg-8">
+    <div class="col-lg-8 search-container">
       <%= form_tag breeds_path, method: :get, class: "form-inline d-flex justify-content-between my-2 my-lg-0" do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search by breed name", class: "form-control flex-grow-1 mr-2" %>
         <%= submit_tag "Search", class: "btn btn-outline-success" %>
       <% end %>
     </div>
   </div>
+</div>
+
+
 
   <div class="row">
     <div class="col-12">
