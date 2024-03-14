@@ -51,7 +51,7 @@ To set up the AdoptADog project locally, follow these steps:
 
 - **Navigate to the Project Directory:**
 
-- cd AdoptADog
+- cd Intro-To-Rails-Project-Shah
 
 - **Install Dependencies:**
 
@@ -59,16 +59,12 @@ To set up the AdoptADog project locally, follow these steps:
 
 - **Set Up the Database:**
 
-- rails db:create
 - rails db:migrate
-
-- **Seed the Database:**
-
-- rails db:seed
+- rake import:owners
 
 - **Start the Rails Server:**
 
-- rails server
+- rails s
 
 - **Access the Application:**
 - Open your web browser and visit [http://localhost:3000](http://localhost:3000)
