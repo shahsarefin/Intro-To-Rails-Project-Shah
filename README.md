@@ -61,6 +61,7 @@ To set up the AdoptADog project locally, follow these steps:
 
 - rails db:migrate
 - rake import:owners
+- rails db:seed
 
 - **Start the Rails Server:**
 
