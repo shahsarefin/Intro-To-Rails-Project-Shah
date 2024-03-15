@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Bred For</th>
+      <th>Breed Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% breeds.each do |breed| %>
+      <tr>
+        <td><%= breed['name'] %></td>
+        <td><%= breed['bred_for'] || 'N/A' %></td>
+        <td><%= breed['breed_group'] || 'N/A' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @breeds, window: 2 %>
