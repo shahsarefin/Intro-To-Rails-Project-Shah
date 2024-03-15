@@ -9,7 +9,7 @@ AdoptADog is a web application aimed at facilitating the adoption process for do
 - **Browse Dog Breeds:** Users can browse a list of dog breeds to learn about their characteristics, temperament, and suitability as pets.
 - **Detailed Breed Information:** Detailed information is provided for each breed, including their history, physical traits, and temperament.
 
-- **Search Functionality:** Users can search for specific dog breeds by name using the search feature.
+- **Search Functionality:** Users can search for specific dog breeds by name using the Simple and also Hierarchical Search feature.
 
 - **User Information:** Detailed information is provided for each User, including their contact and related information.
 
