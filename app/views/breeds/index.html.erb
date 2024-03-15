@@ -19,6 +19,35 @@
   </style>
 <% end %>
 
+<!-- Hierarchical Search Form -->
+<%= form_with(url: breeds_path, method: :get, local: true) do |form| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :bred_for, 'Bred For' %>
+        <%= form.text_field :bred_for, value: params[:bred_for], placeholder: 'e.g., Small rodent hunting', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :breed_group, 'Breed Group' %>
+        <%= form.select :breed_group, 
+             options_for_select(['Toy', 'Working', 'Herding', 'Terrier', 'Hound', 'Sporting', 'Non-Sporting', 'Miscellaneous'], params[:breed_group]), 
+             { include_blank: true }, 
+             class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit 'Filter', class: 'btn btn-outline-success' %>
+  </div>
+<% end %>
+
+
+
+<!-- Simple Search Form -->
 <div class="container mt-3">
   <div class="row justify-content-center mb-4">
     <div class="col-lg-8 search-container">
