@@ -1,0 +1,20 @@
+databases:
+  - name: adopt_a_dog
+    databaseName: adopt_a_dog
+    user: adopt_a_dog
+    plan: free
+
+services:
+  - type: web
+    plan: free
+    name: adopt_a_dog
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: adopt_a_dog
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
