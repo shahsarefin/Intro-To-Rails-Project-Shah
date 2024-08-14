@@ -1,0 +1,21 @@
+app = 'intro-to-rails-project-shah'
+primary_region = 'den'
+
+[deploy]
+  release_command = 'bin/rails db:migrate'
+
+[env]
+  DATABASE_URL = "postgres://postgres:I8H1JxKg8NQVNaU@adaptadogintrorails.flycast:5432"
+  RAILS_ENV = 'production'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
