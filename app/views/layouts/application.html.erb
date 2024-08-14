@@ -11,8 +11,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render 'layouts/menu' %>
-    <%= yield %>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="flex-grow-1">
+      <%= render 'layouts/menu' %>
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %> <!-- Footer is rendered at the bottom -->
   </body>
 </html>

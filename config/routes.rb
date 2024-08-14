@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/owners', to: 'owners#index', as: :owners
   get '/owners/:id', to: 'owners#show', as: :owner
   get '/about', to: 'static_pages#about', as: :about
+  get '/contact', to: 'static_pages#contact', as: :contact
+  post 'contact', to: 'static_pages#submit_contact'
 end

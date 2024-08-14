@@ -1,44 +1,36 @@
-
 <div class="container mt-5">
   <div class="row">
     <div class="col-12">
       <h1>About AdoptADog</h1>
-      <p>This page provides information about our data sources and the structure of our database.</p>
+      <p>Welcome to AdoptADog, your trusted companion in the journey to find a new furry friend. At AdoptADog, we believe that every dog deserves a loving home, and we are committed to making the adoption process as smooth and enjoyable as possible for both pets and their new families.</p>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12">
-      <h2>Dataset Overview - AdoptADog</h2>
-      <p>The dataset comprises three primary entities: Breeds, Owners, and Adoptions. These entities are interconnected through associations that represent the real relationships between pet breeds, their owners, and the adoptions that link them.</p>
+      <h2>Our Mission</h2>
+      <p>Our mission is to connect loving families with dogs in need of a home. We strive to provide a comprehensive and easy-to-use platform where potential pet owners can explore different breeds, learn about their unique characteristics, and find the perfect match for their lifestyle. We are dedicated to ensuring that every adoption is a success story, filled with joy and mutual companionship.</p>
     </div>
   </div>
 
   <div class="row">
-    <!-- Breeds, Owners, Adoptions Section -->
-    <div class="col-md-6">
-      <div class="mb-3">
-        <h3>Breeds</h3>
-        <p><strong>Description:</strong> This entity represents different types of pet breeds. Each breed has its unique characteristics, which are captured by attributes such as name and temperament.</p>
-        <p><strong>Data Source 1 - For Breeds:</strong> We are using the <a href="https://dog.ceo/dog-api/">Dog CEO Dog API</a>.</p>
-      </div>
-
-      <div class="mb-3">
-        <h3>Owners</h3>
-        <p><strong>Description:</strong> Owners are individuals who adopt pets. This entity stores their personal information, which includes contact details and address.</p>
-        <p><strong>Data Source 2 - For Owners:</strong> We are using a CSV file called <code>owners.csv</code> located in the <code>db</code> folder.</p>
-      </div>
-
-      <div class="mb-3">
-        <h3>Adoptions</h3>
-        <p><strong>Description:</strong> This entity records the adoption of a pet by an owner. It serves as a join table between Breeds and Owners, indicating which owner has adopted a pet of a specific breed and when the adoption occurred.</p>
-        <p><strong>Data Source 3 - For Adoption:</strong> For the Adoption model, we are generating data using the Faker gem.</p>
-      </div>
+    <div class="col-12">
+      <h2>Why Choose AdoptADog?</h2>
+      <p>AdoptADog offers a personalized and user-friendly experience for those looking to adopt. We provide detailed profiles of each dog, including their temperament, history, and suitability for different types of homes. Our platform is designed to make it easier for you to find a dog that fits perfectly into your life, ensuring a happy and fulfilling relationship for years to come.</p>
     </div>
+  </div>
 
-    <!-- ERD Diagram Section -->
-    <div class="col-md-6 d-flex align-items-center">
-      <%= image_tag 'erd-AdoptADog.png', class: 'img-fluid', style: 'max-height: 100%;', alt: 'ERD Diagram for AdoptADog' %>
+  <div class="row">
+    <div class="col-12">
+      <h2>Join Us in Making a Difference</h2>
+      <p>By choosing to adopt through AdoptADog, you are not just gaining a new pet; you are making a difference in the life of a dog in need. Together, we can create more happy homes and more wagging tails. Thank you for considering adoption and for being part of the AdoptADog family.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Get in Touch</h2>
+      <p>If you have any questions or need assistance, feel free to <a href="<%= contact_path %>">contact us</a>. We are here to help you every step of the way.</p>
     </div>
   </div>
 </div>
